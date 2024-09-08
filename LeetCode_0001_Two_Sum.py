@@ -1,15 +1,12 @@
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> numMap;
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        numMap = {}
 
-        for (int i = 0; i < nums.size(); i++) {
-            if (numMap.find(target - nums[i]) != numMap.end()) {
-                return {numMap[target - nums[i]], i};
-            } else {
-                numMap[nums[i]] = i;
-            }
-        }
-        return {};
-    }
-};
+        for i in range(len(nums)):
+            _target = target - nums[i]
+            if _target in numMap:
+                return [numMap[_target], i]
+            else:
+                numMap[nums[i]] = i
+                
+        return []
